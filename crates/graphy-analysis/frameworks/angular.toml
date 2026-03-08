@@ -1,0 +1,47 @@
+name = "Angular"
+languages = ["TypeScript"]
+entry_decorators = ["Component", "Injectable", "NgModule", "Directive", "Pipe"]
+
+[detect]
+npm_dep = "@angular/core"
+config_files = ["angular.json"]
+
+[[convention_entries]]
+file_pattern = "*.component.ts"
+exported_only = false
+reason = "component"
+
+[[convention_entries]]
+file_pattern = "*.service.ts"
+exported_only = false
+reason = "service"
+
+[[convention_entries]]
+file_pattern = "*.guard.ts"
+exported_only = false
+reason = "guard"
+
+[[convention_entries]]
+file_pattern = "*.interceptor.ts"
+exported_only = false
+reason = "interceptor"
+
+[[convention_entries]]
+file_pattern = "*.pipe.ts"
+exported_only = false
+reason = "pipe"
+
+[[convention_entries]]
+file_pattern = "*.directive.ts"
+exported_only = false
+reason = "directive"
+
+[[convention_entries]]
+file_pattern = "*.resolver.ts"
+exported_only = false
+reason = "resolver"
+
+[[convention_entries]]
+file_pattern = "*.module.ts"
+exported_only = false
+reason = "module"

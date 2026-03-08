@@ -1,0 +1,15 @@
+name = "React"
+languages = ["TypeScript", "JavaScript"]
+
+[detect]
+npm_dep = "react"
+
+[[convention_entries]]
+file_pattern = "*.tsx"
+exported_only = true
+reason = "component"
+
+[[convention_entries]]
+file_pattern = "*.jsx"
+exported_only = true
+reason = "component"

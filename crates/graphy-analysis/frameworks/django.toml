@@ -1,0 +1,35 @@
+name = "Django"
+languages = ["Python"]
+
+[detect]
+pip_dep = "django"
+import = "django"
+config_files = ["manage.py"]
+
+[[string_dispatches]]
+pattern = "path\\s*\\(\\s*['\"][^'\"]*['\"]\\s*,\\s*(\\w+)"
+description = "Django URL path"
+
+[[string_dispatches]]
+pattern = "url\\s*\\(\\s*r?['\"][^'\"]*['\"]\\s*,\\s*(\\w+)"
+description = "Django legacy URL conf"
+
+[[convention_entries]]
+file_pattern = "views.py"
+exported_only = false
+reason = "view"
+
+[[convention_entries]]
+file_pattern = "admin.py"
+exported_only = false
+reason = "admin"
+
+[[convention_entries]]
+file_pattern = "signals.py"
+exported_only = false
+reason = "signal_handler"
+
+[[convention_entries]]
+file_pattern = "management/"
+exported_only = false
+reason = "management_command"

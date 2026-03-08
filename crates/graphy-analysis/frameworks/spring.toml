@@ -1,0 +1,10 @@
+name = "Spring Boot"
+languages = ["Java", "Kotlin"]
+entry_decorators = [
+    "GetMapping", "PostMapping", "PutMapping", "DeleteMapping", "PatchMapping",
+    "RequestMapping", "Controller", "RestController", "Service", "Component",
+    "Repository", "Configuration", "Bean", "Scheduled", "Async", "EventListener",
+]
+
+[detect]
+gradle_or_maven_dep = "spring-boot"

@@ -1,0 +1,77 @@
+name = "WordPress"
+languages = ["Php"]
+
+[detect]
+files = ["wp-config.php"]
+dirs = ["wp-content/", "wp-includes/"]
+file_names = ["functions.php"]
+
+[[string_dispatches]]
+pattern = "add_action\\s*\\(\\s*['\"][^'\"]*['\"]\\s*,\\s*['\"](\\w+)['\"]"
+description = "WordPress action hook"
+
+[[string_dispatches]]
+pattern = "add_filter\\s*\\(\\s*['\"][^'\"]*['\"]\\s*,\\s*['\"](\\w+)['\"]"
+description = "WordPress filter hook"
+
+[[string_dispatches]]
+pattern = "add_shortcode\\s*\\(\\s*['\"][^'\"]*['\"]\\s*,\\s*['\"](\\w+)['\"]"
+description = "WordPress shortcode"
+
+[[string_dispatches]]
+pattern = "register_activation_hook\\s*\\([^,]+,\\s*['\"](\\w+)['\"]"
+description = "WordPress activation hook"
+
+[[string_dispatches]]
+pattern = "register_deactivation_hook\\s*\\([^,]+,\\s*['\"](\\w+)['\"]"
+description = "WordPress deactivation hook"
+
+[[convention_entries]]
+file_pattern = "single.php"
+exported_only = false
+reason = "template"
+
+[[convention_entries]]
+file_pattern = "archive.php"
+exported_only = false
+reason = "template"
+
+[[convention_entries]]
+file_pattern = "page.php"
+exported_only = false
+reason = "template"
+
+[[convention_entries]]
+file_pattern = "index.php"
+exported_only = false
+reason = "template"
+
+[[convention_entries]]
+file_pattern = "header.php"
+exported_only = false
+reason = "template"
+
+[[convention_entries]]
+file_pattern = "footer.php"
+exported_only = false
+reason = "template"
+
+[[convention_entries]]
+file_pattern = "sidebar.php"
+exported_only = false
+reason = "template"
+
+[[convention_entries]]
+file_pattern = "comments.php"
+exported_only = false
+reason = "template"
+
+[[convention_entries]]
+file_pattern = "search.php"
+exported_only = false
+reason = "template"
+
+[[convention_entries]]
+file_pattern = "404.php"
+exported_only = false
+reason = "template"

@@ -1,0 +1,36 @@
+name = "Ruby on Rails"
+languages = ["Ruby"]
+
+[detect]
+gem_dep = "rails"
+config_files = ["config/routes.rb"]
+
+[[convention_entries]]
+file_pattern = "app/controllers/"
+exported_only = false
+reason = "controller"
+
+[[convention_entries]]
+file_pattern = "app/models/"
+exported_only = false
+reason = "model"
+
+[[convention_entries]]
+file_pattern = "app/helpers/"
+exported_only = false
+reason = "helper"
+
+[[convention_entries]]
+file_pattern = "app/jobs/"
+exported_only = false
+reason = "job"
+
+[[convention_entries]]
+file_pattern = "app/mailers/"
+exported_only = false
+reason = "mailer"
+
+[[convention_entries]]
+file_pattern = "config/initializers/"
+exported_only = false
+reason = "initializer"

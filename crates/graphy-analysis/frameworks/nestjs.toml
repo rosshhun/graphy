@@ -1,0 +1,36 @@
+name = "NestJS"
+languages = ["TypeScript"]
+entry_decorators = ["Controller", "Injectable", "Get", "Post", "Put", "Delete", "Patch"]
+
+[detect]
+npm_dep = "@nestjs/core"
+
+[[convention_entries]]
+file_pattern = "*.controller.ts"
+exported_only = false
+reason = "controller"
+
+[[convention_entries]]
+file_pattern = "*.service.ts"
+exported_only = false
+reason = "service"
+
+[[convention_entries]]
+file_pattern = "*.guard.ts"
+exported_only = false
+reason = "guard"
+
+[[convention_entries]]
+file_pattern = "*.interceptor.ts"
+exported_only = false
+reason = "interceptor"
+
+[[convention_entries]]
+file_pattern = "*.middleware.ts"
+exported_only = false
+reason = "middleware"
+
+[[convention_entries]]
+file_pattern = "*.module.ts"
+exported_only = false
+reason = "module"

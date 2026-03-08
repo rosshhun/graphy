@@ -1,0 +1,6 @@
+name = "Axum"
+languages = ["Rust"]
+entry_decorators = ["get", "post", "put", "delete", "patch", "trace"]
+
+[detect]
+cargo_dep = "axum"

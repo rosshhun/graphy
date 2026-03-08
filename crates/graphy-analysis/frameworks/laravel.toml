@@ -1,0 +1,30 @@
+name = "Laravel"
+languages = ["Php"]
+
+[detect]
+composer_dep = "laravel/framework"
+config_files = ["artisan"]
+
+[[string_dispatches]]
+pattern = "Route::\\w+\\s*\\([^,]+,\\s*\\[[^\\]]*,\\s*['\"](\\w+)['\"]\\s*\\]"
+description = "Laravel route controller method"
+
+[[convention_entries]]
+file_pattern = "*Controller.php"
+exported_only = false
+reason = "controller"
+
+[[convention_entries]]
+file_pattern = "app/Http/Middleware/"
+exported_only = false
+reason = "middleware"
+
+[[convention_entries]]
+file_pattern = "app/Console/Commands/"
+exported_only = false
+reason = "command"
+
+[[convention_entries]]
+file_pattern = "app/Providers/"
+exported_only = false
+reason = "service_provider"

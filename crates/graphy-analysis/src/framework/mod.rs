@@ -255,21 +255,21 @@ fn parse_language(s: &str) -> Option<Language> {
 // ── Built-in TOML configs (embedded at compile time) ───────
 
 const BUILTIN_CONFIGS: &[(&str, &str)] = &[
-    ("wordpress", include_str!("../../../../config/frameworks/wordpress.toml")),
-    ("react", include_str!("../../../../config/frameworks/react.toml")),
-    ("nextjs", include_str!("../../../../config/frameworks/nextjs.toml")),
-    ("express", include_str!("../../../../config/frameworks/express.toml")),
-    ("flask", include_str!("../../../../config/frameworks/flask.toml")),
-    ("django", include_str!("../../../../config/frameworks/django.toml")),
-    ("fastapi", include_str!("../../../../config/frameworks/fastapi.toml")),
-    ("laravel", include_str!("../../../../config/frameworks/laravel.toml")),
-    ("spring", include_str!("../../../../config/frameworks/spring.toml")),
-    ("rails", include_str!("../../../../config/frameworks/rails.toml")),
-    ("angular", include_str!("../../../../config/frameworks/angular.toml")),
-    ("vue", include_str!("../../../../config/frameworks/vue.toml")),
-    ("nestjs", include_str!("../../../../config/frameworks/nestjs.toml")),
-    ("sveltekit", include_str!("../../../../config/frameworks/sveltekit.toml")),
-    ("axum", include_str!("../../../../config/frameworks/axum.toml")),
+    ("wordpress", include_str!("../../frameworks/wordpress.toml")),
+    ("react", include_str!("../../frameworks/react.toml")),
+    ("nextjs", include_str!("../../frameworks/nextjs.toml")),
+    ("express", include_str!("../../frameworks/express.toml")),
+    ("flask", include_str!("../../frameworks/flask.toml")),
+    ("django", include_str!("../../frameworks/django.toml")),
+    ("fastapi", include_str!("../../frameworks/fastapi.toml")),
+    ("laravel", include_str!("../../frameworks/laravel.toml")),
+    ("spring", include_str!("../../frameworks/spring.toml")),
+    ("rails", include_str!("../../frameworks/rails.toml")),
+    ("angular", include_str!("../../frameworks/angular.toml")),
+    ("vue", include_str!("../../frameworks/vue.toml")),
+    ("nestjs", include_str!("../../frameworks/nestjs.toml")),
+    ("sveltekit", include_str!("../../frameworks/sveltekit.toml")),
+    ("axum", include_str!("../../frameworks/axum.toml")),
 ];
 
 // ── Registry ───────────────────────────────────────────────
@@ -515,7 +515,7 @@ mod tests {
 
     #[test]
     fn toml_config_parses_correctly() {
-        let toml_str = include_str!("../../../../config/frameworks/flask.toml");
+        let toml_str = include_str!("../../frameworks/flask.toml");
         let config: FrameworkConfig = toml::from_str(toml_str).unwrap();
         assert_eq!(config.name, "Flask");
         assert_eq!(config.languages, vec!["Python"]);

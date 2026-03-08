@@ -1,0 +1,7 @@
+name = "Flask"
+languages = ["Python"]
+entry_decorators = ["app.route", "blueprint.route", "api.route"]
+
+[detect]
+pip_dep = "flask"
+import = "flask"

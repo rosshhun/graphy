@@ -242,14 +242,14 @@ fn load_tags_query(name: &str, grammar_dir: &std::path::Path) -> String {
 /// Bundled tags.scm queries (embedded at compile time as fallback).
 pub fn bundled_tags_query(name: &str) -> Option<&'static str> {
     match name {
-        "go" => Some(include_str!("../../../config/tags/go.scm")),
-        "java" => Some(include_str!("../../../config/tags/java.scm")),
-        "php" => Some(include_str!("../../../config/tags/php.scm")),
-        "c" => Some(include_str!("../../../config/tags/c.scm")),
-        "cpp" => Some(include_str!("../../../config/tags/cpp.scm")),
-        "c-sharp" => Some(include_str!("../../../config/tags/csharp.scm")),
-        "ruby" => Some(include_str!("../../../config/tags/ruby.scm")),
-        "kotlin" => Some(include_str!("../../../config/tags/kotlin.scm")),
+        "go" => Some(include_str!("../tags/go.scm")),
+        "java" => Some(include_str!("../tags/java.scm")),
+        "php" => Some(include_str!("../tags/php.scm")),
+        "c" => Some(include_str!("../tags/c.scm")),
+        "cpp" => Some(include_str!("../tags/cpp.scm")),
+        "c-sharp" => Some(include_str!("../tags/csharp.scm")),
+        "ruby" => Some(include_str!("../tags/ruby.scm")),
+        "kotlin" => Some(include_str!("../tags/kotlin.scm")),
         _ => None,
     }
 }

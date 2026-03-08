@@ -1,0 +1,5 @@
+name = "Vue"
+languages = ["TypeScript", "JavaScript"]
+
+[detect]
+npm_dep = "\"vue\""
