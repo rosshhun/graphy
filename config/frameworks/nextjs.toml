@@ -1,0 +1,71 @@
+name = "Next.js"
+languages = ["TypeScript", "JavaScript"]
+
+[detect]
+npm_dep = "\"next\""
+config_files = ["next.config.js", "next.config.ts", "next.config.mjs"]
+
+[[convention_entries]]
+file_pattern = "page.tsx"
+exported_only = true
+reason = "page"
+
+[[convention_entries]]
+file_pattern = "page.jsx"
+exported_only = true
+reason = "page"
+
+[[convention_entries]]
+file_pattern = "page.ts"
+exported_only = true
+reason = "page"
+
+[[convention_entries]]
+file_pattern = "page.js"
+exported_only = true
+reason = "page"
+
+[[convention_entries]]
+file_pattern = "layout.tsx"
+exported_only = true
+reason = "layout"
+
+[[convention_entries]]
+file_pattern = "layout.jsx"
+exported_only = true
+reason = "layout"
+
+[[convention_entries]]
+file_pattern = "loading.tsx"
+exported_only = true
+reason = "loading"
+
+[[convention_entries]]
+file_pattern = "error.tsx"
+exported_only = true
+reason = "error_boundary"
+
+[[convention_entries]]
+file_pattern = "not-found.tsx"
+exported_only = true
+reason = "not_found"
+
+[[convention_entries]]
+file_pattern = "route.ts"
+exported_only = true
+reason = "api_route"
+
+[[convention_entries]]
+file_pattern = "route.js"
+exported_only = true
+reason = "api_route"
+
+[[convention_entries]]
+file_pattern = "middleware.ts"
+exported_only = true
+reason = "middleware"
+
+[[convention_entries]]
+file_pattern = "middleware.js"
+exported_only = true
+reason = "middleware"

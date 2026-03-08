@@ -1,0 +1,20 @@
+[package]
+name = "graphy-deps"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Dependency analysis and vulnerability scanning for graphy"
+repository.workspace = true
+
+[dependencies]
+graphy-core = { workspace = true }
+anyhow = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+reqwest = { workspace = true }
+toml = { workspace = true }
+tracing = { workspace = true }
+tokio = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }

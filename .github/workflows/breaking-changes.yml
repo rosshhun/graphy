@@ -1,0 +1,118 @@
+name: Breaking Change Guardian
+
+on:
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  breaking-change-check:
+    name: Detect Breaking Changes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Rust toolchain
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          cache: true
+
+      - name: Cache cargo registry and target
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
+      - name: Build graphy
+        run: cargo build --release
+
+      - name: Index base branch
+        run: |
+          # Check out base branch into a temporary worktree
+          BASE_DIR=$(mktemp -d)
+          git worktree add "$BASE_DIR" ${{ github.event.pull_request.base.sha }}
+
+          # Index the base branch
+          cargo run --release -- analyze "$BASE_DIR"
+
+          # Preserve the indexed data
+          cp -r "$BASE_DIR/.graphy" /tmp/base-graphy
+
+          # Clean up worktree
+          git worktree remove "$BASE_DIR" --force
+
+      - name: Index PR branch
+        run: |
+          # Index the current (PR) branch
+          cargo run --release -- analyze .
+
+          # Preserve the indexed data
+          cp -r .graphy /tmp/pr-graphy
+
+      - name: Run breaking change diff
+        id: diff
+        run: |
+          set +e
+          DIFF_OUTPUT=$(cargo run --release -- diff /tmp/base-graphy /tmp/pr-graphy --fail-on-breaking --format text 2>&1)
+          EXIT_CODE=$?
+          set -e
+
+          # Write diff output to a file for the comment step
+          echo "$DIFF_OUTPUT" > /tmp/diff-output.txt
+
+          # Store exit code for later
+          echo "exit_code=$EXIT_CODE" >> "$GITHUB_OUTPUT"
+
+      - name: Post PR comment
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DIFF_OUTPUT=$(cat /tmp/diff-output.txt)
+          EXIT_CODE=${{ steps.diff.outputs.exit_code }}
+
+          if [ "$EXIT_CODE" -eq 0 ]; then
+            HEADER="## Breaking Change Guardian: No Breaking Changes Detected"
+            STATUS="No breaking changes found in this pull request."
+          else
+            HEADER="## Breaking Change Guardian: Breaking Changes Detected"
+            STATUS="**Warning:** This pull request introduces breaking changes."
+          fi
+
+          COMMENT_BODY=$(cat <<EOF
+          ${HEADER}
+
+          ${STATUS}
+
+          <details>
+          <summary>Diff Output</summary>
+
+          \`\`\`
+          ${DIFF_OUTPUT}
+          \`\`\`
+
+          </details>
+          EOF
+          )
+
+          gh pr comment ${{ github.event.pull_request.number }} --body "$COMMENT_BODY"
+
+      - name: Fail if breaking changes found
+        if: steps.diff.outputs.exit_code != '0'
+        run: |
+          echo "Breaking changes detected. See PR comment for details."
+          exit 1

@@ -1,0 +1,66 @@
+name = "SvelteKit"
+languages = ["TypeScript", "JavaScript", "Svelte"]
+
+[detect]
+npm_dep = "@sveltejs/kit"
+config_files = ["svelte.config.js"]
+
+[[convention_entries]]
+file_pattern = "+page.svelte"
+exported_only = false
+reason = "page"
+
+[[convention_entries]]
+file_pattern = "+layout.svelte"
+exported_only = false
+reason = "layout"
+
+[[convention_entries]]
+file_pattern = "+page.ts"
+exported_only = true
+reason = "page_load"
+
+[[convention_entries]]
+file_pattern = "+page.js"
+exported_only = true
+reason = "page_load"
+
+[[convention_entries]]
+file_pattern = "+page.server.ts"
+exported_only = true
+reason = "server_load"
+
+[[convention_entries]]
+file_pattern = "+page.server.js"
+exported_only = true
+reason = "server_load"
+
+[[convention_entries]]
+file_pattern = "+server.ts"
+exported_only = true
+reason = "api_endpoint"
+
+[[convention_entries]]
+file_pattern = "+server.js"
+exported_only = true
+reason = "api_endpoint"
+
+[[convention_entries]]
+file_pattern = "+layout.ts"
+exported_only = true
+reason = "layout_load"
+
+[[convention_entries]]
+file_pattern = "+layout.server.ts"
+exported_only = true
+reason = "server_layout"
+
+[[convention_entries]]
+file_pattern = "hooks.server.ts"
+exported_only = true
+reason = "server_hook"
+
+[[convention_entries]]
+file_pattern = "hooks.client.ts"
+exported_only = true
+reason = "client_hook"

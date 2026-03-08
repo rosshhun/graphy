@@ -1,0 +1,22 @@
+[package]
+name = "graphy-search"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Full-text and fuzzy search for graphy"
+repository.workspace = true
+
+[features]
+default = []
+vectors = ["fastembed"]
+
+[dependencies]
+graphy-core = { workspace = true }
+anyhow = { workspace = true }
+tantivy = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+bincode = { workspace = true }
+rayon = { workspace = true }
+fastembed = { workspace = true, optional = true }

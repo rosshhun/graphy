@@ -1,0 +1,18 @@
+[package]
+name = "graphy-watch"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "File watcher and incremental re-indexing for graphy"
+repository.workspace = true
+
+[dependencies]
+graphy-core = { workspace = true }
+graphy-parser = { workspace = true }
+graphy-analysis = { workspace = true }
+graphy-search = { workspace = true }
+anyhow = { workspace = true }
+sha2 = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+notify-debouncer-full = { workspace = true }

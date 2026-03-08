@@ -1,0 +1,18 @@
+# Rust
+/target/
+Cargo.lock
+
+# Graphy index data
+.graphy/
+*.redb
+
+# Node.js (web frontend)
+web/node_modules/
+web/dist/
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

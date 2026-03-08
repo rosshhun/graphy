@@ -1,0 +1,63 @@
+[workspace]
+members = [
+    "crates/graphy-core",
+    "crates/graphy-parser",
+    "crates/graphy-analysis",
+    "crates/graphy-search",
+    "crates/graphy-mcp",
+    "crates/graphy-watch",
+    "crates/graphy-web",
+    "crates/graphy-cli",
+    "crates/graphy-deps",
+]
+resolver = "2"
+
+[workspace.package]
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/rosshhun/graphy"
+
+[workspace.dependencies]
+graphy-core = { path = "crates/graphy-core", version = "1.0.0" }
+graphy-parser = { path = "crates/graphy-parser", version = "1.0.0" }
+graphy-analysis = { path = "crates/graphy-analysis", version = "1.0.0" }
+graphy-search = { path = "crates/graphy-search", version = "1.0.0" }
+graphy-mcp = { path = "crates/graphy-mcp", version = "1.0.0" }
+graphy-watch = { path = "crates/graphy-watch", version = "1.0.0" }
+graphy-web = { path = "crates/graphy-web", version = "1.0.0" }
+graphy-deps = { path = "crates/graphy-deps", version = "1.0.0" }
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+bincode = "1"
+petgraph = "0.6"
+redb = "2"
+anyhow = "1"
+thiserror = "2"
+clap = { version = "4", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }
+rayon = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+ignore = "0.4"
+tree-sitter = "0.24"
+tantivy = "0.22"
+notify-debouncer-full = "0.3"
+axum = "0.7"
+tower-http = { version = "0.5", features = ["cors", "fs"] }
+rust-embed = "8"
+reqwest = { version = "0.12", features = ["json", "rustls-tls"], default-features = false }
+toml = "0.8"
+sha2 = "0.10"
+fastembed = "5"
+libloading = "0.8"
+dirs = "5"
+tempfile = "3"
+tree-sitter-svelte-ng = "1"
+regex = "1"
+tikv-jemallocator = "0.6"
+
+[profile.release]
+strip = true
+lto = "thin"

@@ -1,0 +1,9 @@
+name = "Express"
+languages = ["TypeScript", "JavaScript"]
+entry_decorators = [
+    "app.get", "app.post", "app.put", "app.delete", "app.patch",
+    "router.get", "router.post", "router.put", "router.delete",
+]
+
+[detect]
+npm_dep = "express"

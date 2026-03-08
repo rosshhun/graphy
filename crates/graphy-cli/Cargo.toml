@@ -1,0 +1,36 @@
+[package]
+name = "graphy"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Graph-powered code intelligence engine with MCP server"
+keywords = ["code-analysis", "mcp", "tree-sitter", "code-graph", "ai"]
+categories = ["development-tools", "command-line-utilities"]
+repository.workspace = true
+readme = "../../README.md"
+
+[[bin]]
+name = "graphy"
+path = "src/main.rs"
+
+[features]
+default = ["web"]
+web = ["dep:graphy-web"]
+
+[dependencies]
+graphy-core = { workspace = true }
+graphy-parser = { workspace = true }
+graphy-analysis = { workspace = true }
+graphy-search = { workspace = true }
+graphy-mcp = { workspace = true }
+graphy-watch = { workspace = true }
+graphy-web = { workspace = true, optional = true }
+graphy-deps = { workspace = true }
+anyhow = { workspace = true }
+clap = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+tokio = { workspace = true }
+serde_json = { workspace = true }
+rayon = { workspace = true }
+tikv-jemallocator = { workspace = true }

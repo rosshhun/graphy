@@ -1,0 +1,20 @@
+(class_declaration
+  name: (identifier) @name) @definition.class
+
+(interface_declaration
+  name: (identifier) @name) @definition.interface
+
+(method_declaration
+  name: (identifier) @name) @definition.method
+
+(constructor_declaration
+  name: (identifier) @name) @definition.method
+
+(method_invocation
+  name: (identifier) @name) @reference.call
+
+(marker_annotation
+  name: (identifier) @name) @definition.decorator
+
+(annotation
+  name: (identifier) @name) @definition.decorator
