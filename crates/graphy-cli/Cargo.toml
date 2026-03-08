@@ -7,7 +7,7 @@ description = "Graph-powered code intelligence engine with MCP server"
 keywords = ["code-analysis", "mcp", "tree-sitter", "code-graph", "ai"]
 categories = ["development-tools", "command-line-utilities"]
 repository.workspace = true
-readme = "../../README.md"
+readme = "README.md"
 
 [[bin]]
 name = "graphy"
