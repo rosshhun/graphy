@@ -18,7 +18,7 @@ use graphy_core::{CodeGraph, EdgeKind, NodeKind, Visibility};
 use graphy_search::SearchIndex;
 
 #[derive(Embed)]
-#[folder = "../../web/dist"]
+#[folder = "dist"]
 struct FrontendAssets;
 
 /// Shared application state.
